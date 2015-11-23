@@ -1,0 +1,9 @@
+.form-horizontal .control-group{
+	margin-bottom: 0;
+}
+
+.sms-buttons{
+	position: relative;
+	float: right;
+	right: 20px;
+}
