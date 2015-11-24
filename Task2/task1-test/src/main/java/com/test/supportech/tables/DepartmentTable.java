@@ -69,12 +69,8 @@ public class DepartmentTable extends AbstractTableModel{
 	       
 	       public void addData() {
 	    	   DepartmentDao depDao = new DepartmentDaoImpl();
-	    	   try{
 	    		   List<Department> dep = depDao.getDepListAll();
 	    		   addData(dep);
-	    	   } catch(Exception e) {
-	    		   LOG.error(e.getMessage(), e);
-	    	   }
 	       }
 
 	       /**

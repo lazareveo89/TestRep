@@ -45,7 +45,6 @@ public class MainFrame extends JFrame {
 		depTable.setRowSorter(rowSorter);
 		JPanel jpanel = new JPanel(new BorderLayout());
 		jpanel.add(new JLabel("Text search:"), BorderLayout.WEST);
-		jpanel.add(jTextFilter, BorderLayout.CENTER);
 		jpanel.add(closeButton, BorderLayout.EAST);
 		this.add(jpanel, BorderLayout.SOUTH);
 		this.add(jp, BorderLayout.CENTER);

@@ -36,11 +36,14 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		}
 	}
 
-	public List<Department> getDepListAll() throws SQLException {
+	public List<Department> getDepListAll() {
 		List<Department> list = new ArrayList<Department>();
+                Statement stat = null;
+                ResultSet rs = null;
 		if (isConnection(conn)) {
-			Statement stat = conn.createStatement();
-			ResultSet rs = stat.executeQuery(SELECT_ALL_DEP);
+                    try{
+			stat = conn.createStatement();
+			rs = stat.executeQuery(SELECT_ALL_DEP);
 			while (rs.next()) {
 				Department dep = new Department();
 				dep.setId(rs.getLong("id"));
@@ -52,21 +55,38 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				dep.setAbout(rs.getString("depAbout"));
 				list.add(dep);
 			}
-			if (!conn.isClosed()) {
-				conn.close();
-			}
+                    } catch(SQLException e){
+                        LOG.error(e.getMessage(), e);
+                    } finally {
+                        try{
+                            if(rs != null){
+                                rs.close();
+                            }
+                        } catch(SQLException e1){
+                            LOG.error(e1.getMessage(), e1);
+                        } finally {
+                            try{
+                                conn.close();
+                            } catch(SQLException e2) {
+                                LOG.error(e2.getMessage(), e2);
+                            }
+                        }
+                    }
 			return list;
 		} else {
 			return list;
 		}
 	}
 
-	public List<Department> getDepListById(Long id) throws SQLException {
+	public List<Department> getDepListById(Long id) {
 		List<Department> list = new ArrayList<Department>();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
 		if (isConnection(conn)) {
-			PreparedStatement ps = conn.prepareStatement(SELECT_DEP_BY_ID);
+                    try{
+			ps = conn.prepareStatement(SELECT_DEP_BY_ID);
 			ps.setLong(1, id);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Department dep = new Department();
 				dep.setId(rs.getLong("id"));
@@ -78,10 +98,23 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				dep.setAbout(rs.getString("depAbout"));
 				list.add(dep);
 			}
-
-			if (!conn.isClosed()) {
-				conn.close();
-			}
+                    } catch(SQLException e){
+                        LOG.error(e.getMessage(), e);
+                    } finally {
+                        try{
+                            if(rs != null){
+                                rs.close();
+                            }
+                        } catch(SQLException e1){
+                            LOG.error(e1.getMessage(), e1);
+                        } finally {
+                            try{
+                                conn.close();
+                            } catch(SQLException e2) {
+                                LOG.error(e2.getMessage(), e2);
+                            }
+                        }
+                    }
 
 			return list;
 		} else {
@@ -89,12 +122,15 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		}
 	}
 
-	public List<Department> getDepListByName(String name) throws SQLException {
+	public List<Department> getDepListByName(String name) {
 		List<Department> list = new ArrayList<Department>();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
 		if (isConnection(conn)) {
-			PreparedStatement ps = conn.prepareStatement(SELECT_DEP_BY_NAME);
+                    try{
+			ps = conn.prepareStatement(SELECT_DEP_BY_NAME);
 			ps.setString(1, name);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Department dep = new Department();
 				dep.setId(rs.getLong("id"));
@@ -107,22 +143,38 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				list.add(dep);
 			}
 
-			if (!conn.isClosed()) {
-				conn.close();
-			}
-
+                    } catch(SQLException e){
+                        
+                    } finally {
+                        try{
+                            if(ps != null){
+                                ps.close();
+                            }
+                        } catch(SQLException e1){
+                            LOG.error(e1.getMessage(), e1);
+                        } finally {
+                            try{
+                                conn.close();
+                            } catch(SQLException e2) {
+                                LOG.error(e2.getMessage(), e2);
+                            }
+                        }
+                    }
 			return list;
 		} else {
 			return list;
 		}
 	}
 
-	public List<Department> getDepListByAddress(String address)	throws SQLException {
+	public List<Department> getDepListByAddress(String address){
 		List<Department> list = new ArrayList<Department>();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
 		if (isConnection(conn)) {
-			PreparedStatement ps = conn.prepareStatement(SELECT_DEP_BY_ADDRESS);
+                    try{
+			ps = conn.prepareStatement(SELECT_DEP_BY_ADDRESS);
 			ps.setString(1, address);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Department dep = new Department();
 				dep.setId(rs.getLong("id"));
@@ -134,24 +186,38 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				dep.setAbout(rs.getString("depAbout"));
 				list.add(dep);
 			}
-
-			if (!conn.isClosed()) {
-				conn.close();
-			}
-
+                    } catch(SQLException e) {
+                        LOG.error(e.getMessage(), e);
+                    } finally {
+                        try{
+                            if(ps != null){
+                                ps.close();
+                            }
+                        } catch(SQLException e1){
+                            LOG.error(e1.getMessage(), e1);
+                        } finally {
+                            try{
+                                conn.close();
+                            } catch(SQLException e2) {
+                                LOG.error(e2.getMessage(), e2);
+                            }
+                        }
+                    }
 			return list;
 		} else {
 			return list;
 		}
 	}
 
-	public List<Department> getDepListByRating(Integer rating)
-			throws SQLException {
+	public List<Department> getDepListByRating(Integer rating){
 		List<Department> list = new ArrayList<Department>();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
 		if (isConnection(conn)) {
-			PreparedStatement ps = conn.prepareStatement(SELECT_DEP_BY_RATING);
+                    try {
+			ps = conn.prepareStatement(SELECT_DEP_BY_RATING);
 			ps.setInt(1, rating);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Department dep = new Department();
 				dep.setId(rs.getLong("id"));
@@ -164,9 +230,23 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				list.add(dep);
 			}
 
-			if (!conn.isClosed()) {
-				conn.close();
-			}
+                    } catch(Exception e) {
+                        LOG.error(e.getMessage(), e);
+                    } finally {
+                        try{
+                            if(ps != null){
+                                ps.close();
+                            }
+                        } catch(SQLException e1){
+                            LOG.error(e1.getMessage(), e1);
+                        } finally {
+                            try{
+                                conn.close();
+                            } catch(SQLException e2) {
+                                LOG.error(e2.getMessage(), e2);
+                            }
+                        }
+                    }
 
 			return list;
 		} else {
@@ -174,12 +254,15 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		}
 	}
 
-	public List<Department> getDepListByDate(Long date) throws SQLException {
+	public List<Department> getDepListByDate(Long date) {
 		List<Department> list = new ArrayList<Department>();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
 		if (isConnection(conn)) {
-			PreparedStatement ps = conn.prepareStatement(SELECT_DEP_BY_DATE);
+                    try{
+			ps = conn.prepareStatement(SELECT_DEP_BY_DATE);
 			ps.setTimestamp(1, new Timestamp(date));
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Department dep = new Department();
 				dep.setId(rs.getLong("id"));
@@ -191,24 +274,39 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				dep.setAbout(rs.getString("depAbout"));
 				list.add(dep);
 			}
-
-			if (!conn.isClosed()) {
-				conn.close();
-			}
-
+                    } catch(SQLException e) {
+                      LOG.error(e.getMessage(), e);
+                    } 
+                    finally {
+                        try{
+                            if(rs != null){
+                                ps.close();
+                            }
+                        } catch(SQLException e1){
+                            LOG.error(e1.getMessage(), e1);
+                        } finally {
+                            try{
+                                conn.close();
+                            } catch(SQLException e2) {
+                                LOG.error(e2.getMessage(), e2);
+                            }
+                        }
+                    }
 			return list;
 		} else {
 			return list;
 		}
 	}
 
-	public List<Department> getDepListByState(Boolean state)
-			throws SQLException {
+	public List<Department> getDepListByState(Boolean state){
 		List<Department> list = new ArrayList<Department>();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
 		if (isConnection(conn)) {
-			PreparedStatement ps = conn.prepareStatement(SELECT_DEP_BY_STATE);
+                    try{
+			ps = conn.prepareStatement(SELECT_DEP_BY_STATE);
 			ps.setBoolean(1, state);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Department dep = new Department();
 				dep.setId(rs.getLong("id"));
@@ -220,38 +318,23 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				dep.setAbout(rs.getString("depAbout"));
 				list.add(dep);
 			}
-
-			if (!conn.isClosed()) {
-				conn.close();
-			}
-
-			return list;
-		} else {
-			return list;
-		}
-	}
-
-	public List<Department> getDepListByAbout(String about) throws SQLException {
-		List<Department> list = new ArrayList<Department>();
-		if (isConnection(conn)) {
-			PreparedStatement ps = conn.prepareStatement(SELECT_DEP_BY_ABOUT);
-			ps.setString(1, "%"+about+"%");
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				Department dep = new Department();
-				dep.setId(rs.getLong("id"));
-				dep.setDepName(rs.getString("depName"));
-				dep.setDepAddr(rs.getString("depAddress"));
-				dep.setRating(rs.getInt("depRating"));
-				dep.setDepCreate(rs.getDate("dateCreate"));
-				dep.setDepState(rs.getBoolean("depState"));
-				dep.setAbout(rs.getString("depAbout"));
-				list.add(dep);
-			}
-
-			if (!conn.isClosed()) {
-				conn.close();
-			}
+                    }catch(Exception e){
+                        LOG.error(e.getMessage(), e);
+                     } finally {
+                        try{
+                            if(rs != null){
+                                rs.close();
+                            }
+                        } catch(SQLException e1){
+                            LOG.error(e1.getMessage(), e1);
+                        } finally {
+                            try{
+                                conn.close();
+                            } catch(SQLException e2) {
+                                LOG.error(e2.getMessage(), e2);
+                            }
+                        }
+                    }
 
 			return list;
 		} else {
