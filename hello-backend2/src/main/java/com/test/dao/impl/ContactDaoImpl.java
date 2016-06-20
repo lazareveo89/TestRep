@@ -41,9 +41,8 @@ public class ContactDaoImpl implements ContactDao {
 
 	@Override
 	public Map<Long, String> getData() {
-		Map<Long, String> map = new HashMap<>();
 		
-		map = (HashMap<Long, String>) getJdbcTemplate().query("select id, name from contacts", new ResultSetExtractor<Map>() {
+		Map<Long, String> map = (Map<Long, String>) getJdbcTemplate().query("select id, name from contacts", new ResultSetExtractor<Map>() {
 			@Override
 			public Map extractData(ResultSet rs) throws SQLException, DataAccessException {
 				Map<Long,String> mapRes= new HashMap<Long,String>();
