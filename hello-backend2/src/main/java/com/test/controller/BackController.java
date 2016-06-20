@@ -21,7 +21,7 @@ public class BackController {
 	@Autowired
 	private ContactService contactService;
 	
-	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public void insertData(HttpServletResponse response) {
 	try{
 		int i = getContactService().insertData();
