@@ -1,0 +1,6 @@
+/hello/insert - resource for insert rows to db. Request type - POST.
+/hello/contacts?nameFilter=regExp - resource for get filtered data.
+Example: http://localhost:8080/hello-backend2/hello/insert
+
+Used DB: postgreeSQL 9.5.3.1.
+
