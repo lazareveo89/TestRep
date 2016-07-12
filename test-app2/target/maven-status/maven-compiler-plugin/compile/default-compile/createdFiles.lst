@@ -1,0 +1,9 @@
+com/test/model/BaseModel.class
+com/test/model/Statistic.class
+com/test/dao/FileStatisticDao.class
+com/test/dao/impl/FileStatisticDaoImpl.class
+com/test/test/Test.class
+com/test/util/HibernateUtil.class
+com/test/util/FileUtil.class
+com/test/model/FileStatistic.class
+com/test/controller/FileStatisticController.class
