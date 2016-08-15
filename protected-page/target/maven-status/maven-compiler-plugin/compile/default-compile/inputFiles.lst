@@ -1,0 +1,8 @@
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/dao/UserDao.java
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/service/impl/UserServiceImpl.java
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/util/HibernateUtil.java
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/controller/UserController.java
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/model/User.java
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/service/UserService.java
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/dao/impl/UserDaoImpl.java
+/home/eugene/workspace/protected-page/src/main/java/com/test/secure/model/BaseModel.java
