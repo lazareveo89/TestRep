@@ -13,7 +13,6 @@ public class UserServiceImpl implements UserService {
 	
 	private final static String ERR_MESS = "User not found";
 	private final static String ERR_PASS = "Password was wrong";
-	private final static String ERR_PASS_LENGTH = "Password must be consist of 8 symbols or more";
 	
 	@Override
 	public User checkUser(User user) {
@@ -21,11 +20,10 @@ public class UserServiceImpl implements UserService {
 		if(userFromDb == null) {
 			user.setErrMess(ERR_MESS);
 			return user;
-		} else if(!user.getPassword().trim().equalsIgnoreCase(userFromDb.getPassword().trim())) {
+		} else if(userFromDb.getPassword()!=null 
+			&& !user.getPassword().trim()
+			.equalsIgnoreCase(userFromDb.getPassword().trim())) {
 			user.setErrMess(ERR_PASS);
-			return user;
-		} else if (user.getPassword().length() < 8) {
-			user.setErrMess(ERR_PASS_LENGTH);
 			return user;
 		} else {
 			return userFromDb;

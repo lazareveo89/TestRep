@@ -4,6 +4,7 @@
         <wb-resource deploy-path="/" source-path="/Web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <property name="context-root" value="protected-page"/>
         <property name="java-output-path" value="/protected-page/build/classes"/>
     </wb-module>
