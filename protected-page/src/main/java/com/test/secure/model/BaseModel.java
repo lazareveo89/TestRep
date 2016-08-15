@@ -1,6 +1,6 @@
 package com.test.secure.model;
 
-public class BaseModel {
+public abstract class BaseModel {
 	 private String errMess;
 	 
 	 public String getErrMess() {
