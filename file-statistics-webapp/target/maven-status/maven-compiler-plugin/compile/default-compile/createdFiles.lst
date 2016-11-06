@@ -1,0 +1,9 @@
+com\test\filestatistics\model\Statistic.class
+com\test\filestatistics\controller\FileStatisticController.class
+com\test\filestatistics\dao\FileStatisticDao.class
+com\test\filestatistics\dao\impl\FileStatisticDaoImpl.class
+com\test\filestatistics\util\HibernateUtil.class
+com\test\filestatistics\model\FileNamePK.class
+com\test\filestatistics\service\impl\FileStatisticServiceImpl.class
+com\test\filestatistics\model\FileInfo.class
+com\test\filestatistics\service\FileStatisticService.class
