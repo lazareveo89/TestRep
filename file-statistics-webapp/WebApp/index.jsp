@@ -67,10 +67,9 @@
 	}
 	
 	function display(data) {
-		var json = JSON.stringify(data, null, 4);
 		var html = "";
 		for(var i=0; i<data.length; i++) {
-			for(var j=0; j<data[i].listRowStatistics; j++) {
+			for(var j=0; j<data[i].listRowStatistics.length; j++) {
 				html+="<tr>" +
 				"<td>"+data[i].listRowStatistics[j].fileNamePK.fileName+"</td>"+
 				"<td>"+data[i].listRowStatistics[j].longWord+"</td>"+
