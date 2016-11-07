@@ -30,10 +30,10 @@
       <thead>
         <tr>
           <th>Filename</th>
-          <th>Long word</th>
-          <th>Short word</th>
-          <th>Row's length</th>
-          <th>Avg row's length</th>
+          <th>LongWord</th>
+          <th>ShortWord</th>
+          <th>RowLength</th>
+          <th>AvgRowLength</th>
         </tr>
       </thead>
       <tbody id="statistic">
