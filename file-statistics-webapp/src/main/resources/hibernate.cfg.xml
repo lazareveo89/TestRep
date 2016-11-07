@@ -6,7 +6,7 @@
 		<property name="hibernate.connection.driver.class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">1qwe@QWE</property>
+		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.c3p0.min_size">5</property>
 		<property name="hibernate.c3p0.max_size">20</property>
@@ -16,9 +16,5 @@
 	
 		<mapping class="com.test.filestatistics.model.Statistic"/>
 		<mapping class="com.test.filestatistics.model.FileNamePK"/>
-		<!-- property name="initialSize" value="10"/>
-		<property name="maxTotal" value="20"/>
-		 <property name="connection.pool_size">1</property>
-		-->
 	</session-factory>
 </hibernate-configuration>
