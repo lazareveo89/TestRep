@@ -1,4 +1,0 @@
-2015-11-22 03:01:29 ERROR HttpSrv:27 - 
-java.lang.NullPointerException
-	at com.test.mywork.handlers.UserInfoHandler.<init>(UserInfoHandler.java:23)
-	at com.test.mywork.httpsrv.HttpSrv.main(HttpSrv.java:21)
