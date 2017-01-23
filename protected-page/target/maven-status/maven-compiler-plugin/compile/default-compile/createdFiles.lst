@@ -1,8 +1,0 @@
-com/test/secure/service/UserService.class
-com/test/secure/service/impl/UserServiceImpl.class
-com/test/secure/util/HibernateUtil.class
-com/test/secure/model/User.class
-com/test/secure/dao/impl/UserDaoImpl.class
-com/test/secure/dao/UserDao.class
-com/test/secure/controller/UserController.class
-com/test/secure/model/BaseModel.class

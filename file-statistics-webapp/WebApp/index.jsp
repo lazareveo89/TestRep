@@ -30,10 +30,10 @@
       <thead>
         <tr>
           <th>Filename</th>
-          <th>Long word</th>
-          <th>Short word</th>
-          <th>Row's length</th>
-          <th>Avg row's length</th>
+          <th>LongWord</th>
+          <th>ShortWord</th>
+          <th>RowLength</th>
+          <th>AvgRowLength</th>
         </tr>
       </thead>
       <tbody id="statistic">
@@ -67,10 +67,9 @@
 	}
 	
 	function display(data) {
-		var json = JSON.stringify(data, null, 4);
 		var html = "";
 		for(var i=0; i<data.length; i++) {
-			for(var j=0; j<data[i].listRowStatistics; j++) {
+			for(var j=0; j<data[i].listRowStatistics.length; j++) {
 				html+="<tr>" +
 				"<td>"+data[i].listRowStatistics[j].fileNamePK.fileName+"</td>"+
 				"<td>"+data[i].listRowStatistics[j].longWord+"</td>"+
