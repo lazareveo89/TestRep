@@ -11,8 +11,8 @@
 	<table border="1">
 	<thead>
 	<tr>
-		<td>URL</td>
-		<td>Description</td>
+		<th>URL</th>
+		<th>Description</th>
 	</tr>
 	</thead>
 	<tbody>
