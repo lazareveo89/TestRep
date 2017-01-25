@@ -10,7 +10,7 @@
 <body>
 	<form action="index" method="post">
 	<label for="indexUrl">URL:</label>
-		<input name="indexUrl" type="text" size="15"> 
+		<input name="indexUrl" id="indexUrl" type="text" size="15"> 
 		<input value="Index" type="submit">
 	</form>
 </body>

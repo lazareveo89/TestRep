@@ -10,7 +10,7 @@
 <body>
 	<form action="home" method="post">
 	<label for="searchValue">Search word:</label>
-		<input name="searchValue" type="text" size="15"> 
+		<input name="searchValue" id="searchValue" type="text" size="15"> 
 		<input value="Search" type="submit">
 	</form>
 </body>
