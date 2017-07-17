@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -46,15 +47,17 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public void batchExample(Account acc) {
+    public void batchExample(List<Account> accList) {
 	Connection conn = null;
 	try {
 	    conn = dataSource.getConnection();
 	    conn.setAutoCommit(false);
 	    PreparedStatement pr = conn
 		    .prepareStatement("insert into account (money) values (?)");
+	    for(Account acc : accList) {
 		pr.setBigDecimal(1, acc.getMoney());
 		pr.addBatch();
+	    }
 	    int[] updRows = pr.executeBatch();
 	    conn.commit();
 	} catch(SQLException e) {

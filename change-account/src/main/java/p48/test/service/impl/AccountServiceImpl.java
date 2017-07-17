@@ -1,6 +1,7 @@
 package p48.test.service.impl;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import p48.test.dao.AccountDao;
 import p48.test.model.Account;
@@ -26,7 +27,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void batchExample(Account acc) {
+    public void batchExample(List<Account> acc) {
 	accountDao.batchExample(acc);	
     }
     

@@ -28,10 +28,8 @@ public class MainController {
     @RequestMapping(value = "/batchUpdate", method = RequestMethod.POST, headers = "Accept=application/json")
     public void batchUpdate(@RequestBody List<Account> accList) {
 	ExecutorService executor = Executors.newFixedThreadPool(5);
-	for(Account acc : accList) {
-	    Runnable worker = new WorkerExecutor(acc);
+	    Runnable worker = new WorkerExecutor(accList);
 	    executor.execute(worker);
-	}
 	executor.shutdown();
     }
     

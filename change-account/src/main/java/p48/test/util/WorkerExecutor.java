@@ -1,5 +1,7 @@
 package p48.test.util;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import p48.test.model.Account;
@@ -7,12 +9,12 @@ import p48.test.service.AccountService;
 
 public class WorkerExecutor implements Runnable {
 
-    private Account acc;
+    private List<Account> acc;
     
     @Autowired
     private AccountService accService;
     
-    public WorkerExecutor(Account acc) {
+    public WorkerExecutor(List<Account> acc) {
 	this.acc = acc;
     }
     
