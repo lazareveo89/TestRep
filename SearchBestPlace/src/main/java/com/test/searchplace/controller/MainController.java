@@ -14,6 +14,7 @@ import com.test.searchplace.model.Place;
 import com.test.searchplace.model.Tag;
 import com.test.searchplace.model.User;
 import com.test.searchplace.service.PlaceService;
+import com.test.searchplace.service.String;
 
 @RestController
 public class MainController {
@@ -41,6 +42,21 @@ public class MainController {
 	@RequestMapping(value = "/addPlace", method = RequestMethod.POST, headers="Accept=application/json")
 	public void addPlace(@RequestBody Place place) {
 		getPlaceService().createPlace(place);
+	}
+	
+	@RequestMapping(value = "/getPlaces", method = RequestMethod.POST, headers="Accept=application/json")
+	public List<Place> getPlace(String name) {
+	    return getPlaceService().getPlace(name);
+	}
+	
+	@RequestMapping(value = "/updPlace", method = RequestMethod.POST, headers="Accept=application/json")
+	public void updatePlace(@RequestBody Place place) {
+	    getPlaceService().updatePlace(place);
+	}
+	
+	@RequestMapping(value = "/delPlace", method = RequestMethod.POST, headers="Accept=application/json")
+	public void deletePlace(@RequestBody Place place) {
+	    getPlaceService().deletePlace(place);
 	}
 	
 	public PlaceService getPlaceService() {
